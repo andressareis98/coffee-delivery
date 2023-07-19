@@ -1,10 +1,11 @@
 import { CoffeeList } from "./Components/CoffeeList";
-import { BodyContainer } from "./styles";
+import { Intoduction } from "./Components/Introduction";
 
 export function Home() {
   return (
-    <BodyContainer>
+    <>
+      <Intoduction />
       <CoffeeList />
-    </BodyContainer>
+    </>
   );
 }

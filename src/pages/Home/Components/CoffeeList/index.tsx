@@ -18,21 +18,22 @@ import {
   PriceContainer,
   DollarSign,
   PriceValue,
+  Container,
 } from "./styles";
 
 export function CoffeeList() {
-  const initialSrc = "../../../public/assets/images/";
+  const initialSrc = "../../../public/assets/images/coffees/";
   return (
-    <>
+    <Container>
       <TitlePage>Nossos cafés</TitlePage>
       <Coffees>
         {coffees.map((coffee) => {
           return (
-            <Card>
+            <Card key={coffee.id}>
               <ImageWrapper src={`${initialSrc}${coffee.src}`} aria-hidden />
               <TagsContainer>
-                {coffee.tags.map((tag) => {
-                  return <Tag>{tag}</Tag>;
+                {coffee.tags.map((tag, index) => {
+                  return <Tag key={index}>{tag}</Tag>;
                 })}
               </TagsContainer>
 
@@ -61,6 +62,6 @@ export function CoffeeList() {
           );
         })}
       </Coffees>
-    </>
+    </Container>
   );
 }

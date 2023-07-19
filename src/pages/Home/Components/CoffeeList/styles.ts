@@ -2,9 +2,14 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   background-color: ${(props) => props.theme["background"]};
+  padding: 32px 160px;
+
+  @media screen and (max-width: 750px) {
+    padding: 2rem;
+  }
 `;
 
-export const TitlePage = styled.h1`
+export const TitlePage = styled.h2`
   color: ${(props) => props.theme["base-subtitle"]};
   font-size: 2rem;
   font-family: "Baloo 2";
@@ -62,13 +67,13 @@ export const ImageWrapper = styled.img`
   justify-content: center;
 `;
 
-export const Name = styled.h2`
+export const Name = styled.h3`
   color: ${(props) => props.theme["base-subtitle"]};
   font-size: 1.25rem;
   margin-bottom: 0.5rem;
 `;
 
-export const Description = styled.span`
+export const Description = styled.p`
   color: ${(props) => props.theme["base-label"]};
   text-align: center;
   font-size: 0.875rem;
@@ -102,7 +107,7 @@ export const PriceValue = styled.span`
   margin-left: 0.5rem;
 `;
 
-export const Counter = styled.button`
+export const Counter = styled.div`
   display: flex;
   flex-direction: row;
   background-color: ${(props) => props.theme["base-button"]};
