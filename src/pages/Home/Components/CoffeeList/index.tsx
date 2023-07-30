@@ -9,10 +9,6 @@ import {
   Name,
   Tag,
   TagsContainer,
-  Counter,
-  AddButton,
-  Visor,
-  DecreaseButton,
   Buy,
   ButtonShopping,
   PriceContainer,
@@ -20,6 +16,7 @@ import {
   PriceValue,
   Container,
 } from "./styles";
+import { CounterComponent } from "../../../../components/Counter";
 
 export function CoffeeList() {
   const initialSrc = "../../../public/assets/images/coffees/";
@@ -49,11 +46,7 @@ export function CoffeeList() {
                     })}
                   </PriceValue>
                 </PriceContainer>
-                <Counter>
-                  <DecreaseButton aria-label="diminuir">-</DecreaseButton>
-                  <Visor>1</Visor>
-                  <AddButton aria-label="aumentar">+</AddButton>
-                </Counter>
+                <CounterComponent />
                 <ButtonShopping>
                   <img src={shoppingCart} />
                 </ButtonShopping>
