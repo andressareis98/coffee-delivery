@@ -1,4 +1,4 @@
-import { coffees } from "../../../../mocks/coffees";
+import { coffeesInitial } from "../../../../mocks/coffees";
 import shoppingCart from "../../../../assets/icons/ShoppingCart.svg";
 import {
   Card,
@@ -20,11 +20,12 @@ import { CounterComponent } from "../../../../components/Counter";
 
 export function CoffeeList() {
   const initialSrc = "../../../public/assets/images/coffees/";
+
   return (
     <Container>
       <TitlePage>Nossos cafés</TitlePage>
       <Coffees>
-        {coffees.map((coffee) => {
+        {coffeesInitial.map((coffee) => {
           return (
             <Card key={coffee.id}>
               <ImageWrapper src={`${initialSrc}${coffee.src}`} aria-hidden />
@@ -46,7 +47,7 @@ export function CoffeeList() {
                     })}
                   </PriceValue>
                 </PriceContainer>
-                <CounterComponent />
+                <CounterComponent coffee={coffee} />
                 <ButtonShopping>
                   <img src={shoppingCart} />
                 </ButtonShopping>

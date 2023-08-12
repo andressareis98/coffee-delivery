@@ -38,3 +38,19 @@ export const ShoppingCartButton = styled.button`
   border-radius: 0.375rem;
   background-color: ${(props) => props.theme["yellow-light"]};
 `;
+
+export const Badge = styled.span`
+  position: absolute;
+  background-color: ${(props) => props.theme["yellow-dark"]};
+  color: ${(props) => props.theme["white"]};
+  font-size: 0.75rem;
+  line-height: 130%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 50%;
+  transform: translate(90%, -80%);
+  z-index: 1;
+`;

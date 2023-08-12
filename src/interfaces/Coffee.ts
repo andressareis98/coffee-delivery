@@ -5,4 +5,7 @@ export interface Coffee {
   price: number;
   src: string;
   tags: string[];
+  quantity: number;
 }
+
+export type Coffees = Coffee[];

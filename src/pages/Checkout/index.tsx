@@ -3,13 +3,6 @@ import {
   ColumnContainer,
   Title,
   PurchaseDataContainer,
-  CoffeeItem,
-  CoffeeImage,
-  TitleAndButtonsContainer,
-  CoffeeTitle,
-  ButtonsContainer,
-  RemoveCoffeeButton,
-  Price,
   Table,
   TableRow,
   ParameterName,
@@ -18,33 +11,19 @@ import {
   ConfirmOrderButton,
 } from "./styles";
 
-import { Forms } from "./Components/Forms";
-import { Coffee } from "../../interfaces/Coffee";
-import { CounterComponent } from "../../components/Counter";
+import { useContext } from "react";
 
-import trash from "../../assets/icons/Trash.svg";
+import { Forms } from "./Components/Forms";
+
+import { CoffeesContext } from "../../contexts/CoffeesContext";
+import { CoffeeItem } from "./Components/CoffeItem";
 
 export function Checkout() {
-  const coffees: Coffee[] = [
-    {
-      id: 1,
-      name: "Expresso Tradicional",
-      description: "O tradicional café feito com água quente e grãos moídos",
-      price: 9.9,
-      src: "expresso-tradicional.png",
-      tags: ["tradicional"],
-    },
-    {
-      id: 2,
-      name: "Expresso Americano",
-      description: "Expresso diluído, menos intenso que o tradicional",
-      price: 9.9,
-      src: "expresso-americano.png",
-      tags: ["tradicional"],
-    },
-  ];
+  const { coffees } = useContext(CoffeesContext);
 
-  const totalSum = coffees.reduce((acc, coffee) => acc + coffee.price, 0);
+  const totalSum = coffees.reduce((acc, coffee) => {
+    return acc + coffee.price * coffee.quantity;
+  }, 0);
 
   const freight = 3.5;
 
@@ -83,30 +62,7 @@ export function Checkout() {
         <Title>Cafés selecionados</Title>
         <PurchaseDataContainer>
           {coffees.map((coffee, index) => {
-            return (
-              <CoffeeItem key={index}>
-                <CoffeeImage
-                  src={`../../../public/assets/images/coffees/${coffee.src}`}
-                />
-                <TitleAndButtonsContainer>
-                  <CoffeeTitle>{coffee.name}</CoffeeTitle>
-                  <ButtonsContainer>
-                    <CounterComponent />
-                    <RemoveCoffeeButton>
-                      <img src={trash} />
-                      <span>Remover</span>
-                    </RemoveCoffeeButton>
-                  </ButtonsContainer>
-                </TitleAndButtonsContainer>
-                <Price>
-                  {coffee.price.toLocaleString("pt-br", {
-                    style: "currency",
-                    currency: "BRL",
-                    minimumFractionDigits: 2,
-                  })}
-                </Price>
-              </CoffeeItem>
-            );
+            return <CoffeeItem key={index} coffee={coffee} />;
           })}
           <Table>
             <Tbody>
