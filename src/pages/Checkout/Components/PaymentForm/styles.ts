@@ -1,14 +1,12 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+export const PaymentContainer = styled.div`
   display: flex;
   flex-direction: column;
   background-color: ${(props) => props.theme["base-card"]};
   border-radius: 6px;
   padding: 40px;
 `;
-
-export const AddressContainer = styled(Container)``;
 
 export const TitleForm = styled.div`
   display: flex;
@@ -41,31 +39,6 @@ export const TitleForm = styled.div`
     }
   }
 `;
-
-export const Input = styled.input`
-  &::placeholder {
-    color: ${(props) => props.theme["base-label"]};
-  }
-  color: ${(props) => props.theme["base-text"]};
-  background-color: ${(props) => props.theme["base-input"]};
-  border: 1px solid ${(props) => props.theme["base-button"]};
-  border-radius: 4px;
-  padding: 12px;
-  margin-bottom: 12px;
-  width: 100%;
-`;
-
-export const CepInput = styled(Input)`
-  width: 200px;
-`;
-
-export const InputsContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  gap: 12px;
-`;
-
-export const PaymentContainer = styled(Container)``;
 
 export const PaymentsTypesContainer = styled.div`
   display: flex;
