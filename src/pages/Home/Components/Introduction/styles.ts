@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import background from "../../../../assets/images/background.png";
+import background from "../../../../../public/assets/images/background.png";
 
 export const Container = styled.section`
   display: flex;

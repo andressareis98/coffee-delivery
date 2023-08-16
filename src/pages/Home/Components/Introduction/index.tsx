@@ -7,7 +7,7 @@ import {
   Item,
 } from "./styles";
 
-import coffe from "../../../../assets/images/coffe-introduction.png";
+import coffe from "../../../../../public/assets/images/coffe-introduction.png";
 import BoxIcon from "../../../../assets/icons/BoxIntroduction.svg";
 import CoffeeIcon from "../../../../assets/icons/CoffeIntroduction.svg";
 import ShoppingCartIcon from "../../../../assets/icons/ShoppingCartIntroduction.svg";

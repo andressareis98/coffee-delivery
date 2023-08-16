@@ -32,7 +32,7 @@ export const Localization = styled.div`
   background-color: ${(props) => props.theme["purple-light"]};
 `;
 
-export const ShoppingCartButton = styled.button`
+export const ShoppingCartButton = styled.div`
   padding: 0.5rem;
   border: none;
   border-radius: 0.375rem;
