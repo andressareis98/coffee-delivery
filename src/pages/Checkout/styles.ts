@@ -7,6 +7,10 @@ export const Container = styled.div`
   flex-direction: row;
   padding: 80px 160px;
   gap: 32px;
+
+  a {
+    text-decoration: none;
+  }
 `;
 
 export const Title = styled.h2`
@@ -30,6 +34,12 @@ export const PurchaseDataContainer = styled.div`
 `;
 
 export const ConfirmOrderButton = styled.button`
+  text-decoration: none;
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
   width: 100%;
   display: flex;
   align-items: center;
@@ -43,4 +53,12 @@ export const ConfirmOrderButton = styled.button`
   color: ${(props) => props.theme["white"]};
   margin-top: 24px;
   padding: 12px;
+
+  &:hover {
+    background-color: ${(props) => props.theme["yellow-dark"]};
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
 `;

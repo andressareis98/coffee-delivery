@@ -117,4 +117,9 @@ export const ButtonShopping = styled.button`
   padding: 0.5rem;
   margin-left: 0.5rem;
   height: 100%;
+
+  &:hover {
+    background-color: ${(props) => props.theme["purple"]};
+    cursor: pointer;
+  }
 `;

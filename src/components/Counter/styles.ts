@@ -17,6 +17,10 @@ export const ButtonActionCount = styled.button`
   color: ${(props) => props.theme["purple"]};
   background-color: ${(props) => props.theme["base-button"]};
   padding: 0.5rem;
+
+  &:hover {
+    color: ${(props) => props.theme["purple-dark"]};
+  }
 `;
 
 export const AddButton = styled(ButtonActionCount)``;

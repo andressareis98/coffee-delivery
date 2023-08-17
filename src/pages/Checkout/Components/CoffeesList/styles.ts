@@ -47,6 +47,10 @@ export const RemoveCoffeeButton = styled.button`
   background-color: ${(props) => props.theme["base-button"]};
   border: none;
   border-radius: 6px;
+
+  &:hover {
+    background-color: ${(props) => props.theme["base-hover"]};
+  }
 `;
 
 export const Price = styled.span`

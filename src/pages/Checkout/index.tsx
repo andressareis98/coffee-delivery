@@ -11,6 +11,8 @@ import { PaymentForm } from "./Components/PaymentForm";
 import { CoffeesList } from "./Components/CoffeesList";
 import { Values } from "./Components/Values";
 
+import { Link } from "react-router-dom";
+
 export function Checkout() {
   return (
     <Container>
@@ -24,7 +26,10 @@ export function Checkout() {
         <PurchaseDataContainer>
           <CoffeesList />
           <Values />
-          <ConfirmOrderButton>Confirmar pedido</ConfirmOrderButton>
+
+          <Link to="/success">
+            <ConfirmOrderButton>Confirmar pedido</ConfirmOrderButton>
+          </Link>
         </PurchaseDataContainer>
       </ColumnContainer>
     </Container>

@@ -12,8 +12,12 @@ import success from "../../assets/images/success.svg";
 import pinSuccess from "../../assets/icons/PinSuccess.svg";
 import timerSuccess from "../../assets/icons/TimerSuccess.svg";
 import moneySuccess from "../../assets/icons/MoneySuccess.svg";
+import { useContext } from "react";
+import { AddressContext } from "../../contexts/AddressContext";
 
 export function Success() {
+  const { address } = useContext(AddressContext);
+
   return (
     <Container>
       <Title>Uhu! Pedido confirmado</Title>
@@ -24,9 +28,14 @@ export function Success() {
             <img src={pinSuccess} aria-hidden />
             <div>
               <span>
-                Entrega em <strong>Rua João Daniel Martinelli, 102</strong>
+                Entrega em{" "}
+                <strong>
+                  {address.street}, {address.number}
+                </strong>
               </span>
-              <span>Farrapos - Porto Alegre, RS</span>
+              <span>
+                {address.neighborhood} - {address.city}, {address.state}
+              </span>
             </div>
           </OrderInfo>
           <OrderInfo>

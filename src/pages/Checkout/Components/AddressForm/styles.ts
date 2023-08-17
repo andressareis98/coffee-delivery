@@ -41,16 +41,20 @@ export const TitleForm = styled.div`
 `;
 
 export const Input = styled.input`
-  &::placeholder {
-    color: ${(props) => props.theme["base-label"]};
-  }
   color: ${(props) => props.theme["base-text"]};
+
   background-color: ${(props) => props.theme["base-input"]};
   border: 1px solid ${(props) => props.theme["base-button"]};
   border-radius: 4px;
   padding: 12px;
   margin-bottom: 12px;
   width: 100%;
+
+  &:focus {
+    box-shadow: none;
+    border-color: ${(props) => props.theme["yellow-dark"]};
+    color: ${(props) => props.theme["base-text"]};
+  }
 `;
 
 export const CepInput = styled(Input)`

@@ -1,3 +1,6 @@
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+
 import { coffeesInitial } from "../../../../mocks/coffees";
 import shoppingCart from "../../../../assets/icons/ShoppingCart.svg";
 import {
@@ -17,9 +20,20 @@ import {
   Container,
 } from "./styles";
 import { CounterComponent } from "../../../../components/Counter";
+import { CoffeesContext } from "../../../../contexts/CoffeesContext";
+import { Coffee } from "../../../../interfaces/Coffee";
 
 export function CoffeeList() {
   const initialSrc = "../../../public/assets/images/coffees/";
+
+  const navigate = useNavigate();
+
+  const { add } = useContext(CoffeesContext);
+
+  const handleBuyCoffee = (coffee: Coffee) => {
+    add(coffee);
+    navigate("/checkout");
+  };
 
   return (
     <Container>
@@ -48,7 +62,7 @@ export function CoffeeList() {
                   </PriceValue>
                 </PriceContainer>
                 <CounterComponent coffee={coffee} />
-                <ButtonShopping>
+                <ButtonShopping onClick={() => handleBuyCoffee(coffee)}>
                   <img src={shoppingCart} />
                 </ButtonShopping>
               </Buy>
