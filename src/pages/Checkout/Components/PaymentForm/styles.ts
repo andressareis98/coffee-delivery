@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+interface labelProps {
+  isChecked: boolean;
+}
+
 export const PaymentContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -40,13 +44,13 @@ export const TitleForm = styled.div`
   }
 `;
 
-export const PaymentsTypesContainer = styled.div`
+export const FormContainer = styled.form`
   display: flex;
   flex-direction: row;
   gap: 12px;
 `;
 
-export const ButtonPaymentType = styled.button`
+export const InputLabel = styled.label<labelProps>`
   display: flex;
   flex: 1;
   flex-direction: row;
@@ -54,11 +58,22 @@ export const ButtonPaymentType = styled.button`
   padding: 16px;
   gap: 12px;
   color: ${(props) => props.theme["base-text"]};
-  background-color: ${(props) => props.theme["base-button"]};
-  border: none;
+  background-color: ${(props) =>
+    props.isChecked ? props.theme["purple-light"] : props.theme["base-button"]};
+  border: ${(props) => (props.isChecked ? "1px solid" : "none")};
   text-transform: uppercase;
   font-size: 12px;
   line-height: 160%;
   white-space: nowrap;
   flex-wrap: wrap;
+
+  input {
+    display: none;
+  }
+
+  &:hover {
+    cursor: pointer;
+    background-color: ${(props) =>
+      props.isChecked ? "" : props.theme["base-hover"]};
+  }
 `;
