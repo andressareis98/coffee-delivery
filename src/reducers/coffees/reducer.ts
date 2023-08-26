@@ -48,6 +48,12 @@ export function coffeesReducer(state: CoffeesState, action: any) {
         }
       });
 
+    // Ação de remover tudo da sacola
+    case ActionTypes.REMOVER_TUDO:
+      return produce(state, (draft) => {
+        draft.coffees = [];
+      });
+
     default:
       return state;
   }

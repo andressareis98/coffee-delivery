@@ -4,6 +4,7 @@ export enum ActionTypes {
   ADD = "ADD",
   DIMINUIR_QUANTIDADE = "DIMINUIR_QUANTIDADE",
   REMOVER = "REMOVER",
+  REMOVER_TUDO = "REMOVER_TUDO",
 }
 
 // AÇÃO DE ADICIONAR CAFÉ NA SACOLA
@@ -33,5 +34,12 @@ export function removerDaSacola(coffee: Coffee) {
     payload: {
       coffee,
     },
+  };
+}
+
+// Ação de remover tudo da sacola
+export function esvaziarSacola() {
+  return {
+    type: ActionTypes.REMOVER_TUDO,
   };
 }

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const AddressContainer = styled.div`
+export const Container = styled.div`
   display: flex;
   flex-direction: column;
   background-color: ${(props) => props.theme["base-card"]};
@@ -8,7 +8,7 @@ export const AddressContainer = styled.div`
   padding: 40px;
 `;
 
-export const TitleForm = styled.div`
+export const TitleContainer = styled.div`
   display: flex;
   flex-direction: row;
   gap: 8px;
@@ -37,6 +37,18 @@ export const TitleForm = styled.div`
       color: ${(props) => props.theme["base-text"]};
       line-height: 130%;
     }
+  }
+`;
+
+export const Form = styled.form`
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  input[type="number"] {
+    -moz-appearance: textfield; /* Para Firefox */
   }
 `;
 

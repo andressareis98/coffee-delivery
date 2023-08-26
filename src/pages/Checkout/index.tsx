@@ -12,8 +12,16 @@ import { CoffeesList } from "./Components/CoffeesList";
 import { Values } from "./Components/Values";
 
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { CoffeesContext } from "../../contexts/CoffeesContext";
 
 export function Checkout() {
+  const { removerTudo } = useContext(CoffeesContext);
+
+  const handleConfirmOrder = () => {
+    removerTudo();
+  };
+
   return (
     <Container>
       <ColumnContainer>
@@ -27,7 +35,7 @@ export function Checkout() {
           <CoffeesList />
           <Values />
 
-          <Link to="/success">
+          <Link to="/success" onClick={handleConfirmOrder}>
             <ConfirmOrderButton>Confirmar pedido</ConfirmOrderButton>
           </Link>
         </PurchaseDataContainer>

@@ -1,9 +1,10 @@
 import {
-  TitleForm,
+  Container,
+  TitleContainer as Title,
   CepInput,
+  Form,
   Input,
   InputsContainer,
-  AddressContainer,
 } from "./styles";
 
 import pin from "../../../../assets/icons/pin.svg";
@@ -19,15 +20,15 @@ export function AddressForm() {
   };
 
   return (
-    <AddressContainer>
-      <TitleForm>
+    <Container>
+      <Title>
         <img src={pin} aria-hidden />
         <div>
           <h3>Endereço de Entrega</h3>
           <span>Informe o endereço onde deseja receber seu pedido</span>
         </div>
-      </TitleForm>
-      <form>
+      </Title>
+      <Form>
         <CepInput name="cep" aria-label="Cep" type="text" placeholder="CEP" />
         <Input
           name="street"
@@ -81,7 +82,7 @@ export function AddressForm() {
             onChange={handleAddress}
           />
         </InputsContainer>
-      </form>
-    </AddressContainer>
+      </Form>
+    </Container>
   );
 }

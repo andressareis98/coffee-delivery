@@ -4,6 +4,7 @@ import {
   adicionarNaSacola,
   diminuirQuantidade,
   removerDaSacola,
+  esvaziarSacola,
 } from "../reducers/coffees/actions";
 import { Coffee } from "../interfaces/Coffee";
 
@@ -12,6 +13,7 @@ interface CoffeesContextType {
   add: (coffee: Coffee) => void;
   diminuir: (coffee: Coffee) => void;
   remover: (coffee: Coffee) => void;
+  removerTudo: () => void;
 }
 
 export const CoffeesContext = createContext({} as CoffeesContextType);
@@ -56,6 +58,10 @@ export function CoffeesContextProvider({
     dispatch(removerDaSacola(coffee));
   }
 
+  function removerTudo() {
+    dispatch(esvaziarSacola());
+  }
+
   return (
     <CoffeesContext.Provider
       value={{
@@ -63,6 +69,7 @@ export function CoffeesContextProvider({
         add,
         diminuir,
         remover,
+        removerTudo,
       }}
     >
       {children}
