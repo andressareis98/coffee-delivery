@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext } from "react";
 import {
   FormContainer,
   InputLabel,
@@ -10,12 +10,13 @@ import money from "../../../../assets/icons/MoneyCheckout.svg";
 import creditCard from "../../../../assets/icons/CreditCard.svg";
 import debitCard from "../../../../assets/icons/DebitCard.svg";
 import moneyNote from "../../../../assets/icons/MoneyNote.svg";
+import { PaymentTypeContext } from "../../../../contexts/PaymentTypeContext";
 
 export function PaymentForm() {
-  const [selected, setSelected] = useState("");
+  const { paymentType, setPaymentType } = useContext(PaymentTypeContext);
 
   const handlePaymentType = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSelected(e.target.value);
+    setPaymentType(e.target.value);
   };
 
   return (
@@ -30,9 +31,9 @@ export function PaymentForm() {
         </div>
       </TitleForm>
       <FormContainer>
-        <InputLabel isChecked={selected === "credit"}>
+        <InputLabel isChecked={paymentType === "credit"}>
           <input
-            checked={selected === "credit"}
+            checked={paymentType === "credit"}
             value="credit"
             onChange={handlePaymentType}
             type="radio"
@@ -41,9 +42,9 @@ export function PaymentForm() {
           <img src={creditCard} />
           cartão de crédito
         </InputLabel>
-        <InputLabel isChecked={selected === "debit"}>
+        <InputLabel isChecked={paymentType === "debit"}>
           <input
-            checked={selected === "debit"}
+            checked={paymentType === "debit"}
             value="debit"
             onChange={handlePaymentType}
             type="radio"
@@ -52,9 +53,9 @@ export function PaymentForm() {
           <img src={debitCard} />
           cartão de débito
         </InputLabel>
-        <InputLabel isChecked={selected === "money"}>
+        <InputLabel isChecked={paymentType === "money"}>
           <input
-            checked={selected === "money"}
+            checked={paymentType === "money"}
             value="money"
             onChange={handlePaymentType}
             type="radio"

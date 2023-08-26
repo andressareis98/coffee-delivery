@@ -14,9 +14,24 @@ import timerSuccess from "../../assets/icons/TimerSuccess.svg";
 import moneySuccess from "../../assets/icons/MoneySuccess.svg";
 import { useContext } from "react";
 import { AddressContext } from "../../contexts/AddressContext";
+import { PaymentTypeContext } from "../../contexts/PaymentTypeContext";
 
 export function Success() {
   const { address } = useContext(AddressContext);
+  const { paymentType } = useContext(PaymentTypeContext);
+
+  const formatPaymentType = () => {
+    switch (paymentType) {
+      case "credit":
+        return "Cartão de crédito";
+      case "debit":
+        return "Cartão de débito";
+      case "money":
+        return "Dinheiro";
+      default:
+        return "";
+    }
+  };
 
   return (
     <Container>
@@ -49,7 +64,7 @@ export function Success() {
             <img src={moneySuccess} aria-hidden />
             <div>
               <span>Pagamento na entrega</span>
-              <strong>Cartão de Crédito</strong>
+              <strong>{formatPaymentType()}</strong>
             </div>
           </OrderInfo>
         </Information>

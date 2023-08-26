@@ -5,18 +5,21 @@ import { defaultTheme } from "./styles/themes/default";
 import { GlobalStyle } from "./styles/global";
 import { CoffeesContextProvider } from "./contexts/CoffeesContext";
 import { AddressContextProvider } from "./contexts/AddressContext";
+import { PaymentTypeContextProvider } from "./contexts/PaymentTypeContext";
 
 export function App() {
   return (
     <ThemeProvider theme={defaultTheme}>
-      <AddressContextProvider>
-        <CoffeesContextProvider>
-          <BrowserRouter>
-            <GlobalStyle />
-            <Router />
-          </BrowserRouter>
-        </CoffeesContextProvider>
-      </AddressContextProvider>
+      <CoffeesContextProvider>
+        <AddressContextProvider>
+          <PaymentTypeContextProvider>
+            <BrowserRouter>
+              <GlobalStyle />
+              <Router />
+            </BrowserRouter>
+          </PaymentTypeContextProvider>
+        </AddressContextProvider>
+      </CoffeesContextProvider>
     </ThemeProvider>
   );
 }
