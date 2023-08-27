@@ -1,34 +1,57 @@
-// Criar useContext para o address
-
-import { createContext, useState } from "react";
+import { createContext, useEffect, useReducer } from "react";
 import { Address } from "../interfaces/Address";
+import { addressReducer } from "../reducers/address/reducer";
+import {
+  adicionarEndereco,
+  removerEndereco,
+} from "../reducers/address/actions";
 
-interface CoffeesContextType {
+interface AddressContextType {
   address: Address;
   setAddress: (address: Address) => void;
+  removeAddress: () => void;
 }
 
-export const AddressContext = createContext({} as CoffeesContextType);
+export const AddressContext = createContext({} as AddressContextType);
 
-interface AddressProviderProps {
+interface AddressContextProviderProps {
   children: React.ReactNode;
 }
 
-const initialAddress: Address = {
-  cep: "",
-  street: "",
-  number: 0,
-  complement: "",
-  neighborhood: "",
-  city: "",
-  state: "",
-};
+export function AddressContextProvider({
+  children,
+}: AddressContextProviderProps) {
+  const [addressState, dispatch] = useReducer(
+    addressReducer,
+    { address: {} },
+    (initialState) => {
+      const storedStateAsJson = localStorage.getItem(
+        "@coffee-delivery:address-state-1.0.0"
+      );
+      if (storedStateAsJson) {
+        return JSON.parse(storedStateAsJson);
+      }
+      return initialState;
+    }
+  );
 
-export function AddressContextProvider({ children }: AddressProviderProps) {
-  const [address, setAddress] = useState<Address>(initialAddress);
+  useEffect(() => {
+    const stateJSON = JSON.stringify(addressState);
+    localStorage.setItem("@coffee-delivery:address-state-1.0.0", stateJSON);
+  }, [addressState]);
+
+  const { address } = addressState;
+
+  function setAddress(address: Address) {
+    dispatch(adicionarEndereco(address));
+  }
+
+  function removeAddress() {
+    dispatch(removerEndereco());
+  }
 
   return (
-    <AddressContext.Provider value={{ address, setAddress }}>
+    <AddressContext.Provider value={{ address, setAddress, removeAddress }}>
       {children}
     </AddressContext.Provider>
   );

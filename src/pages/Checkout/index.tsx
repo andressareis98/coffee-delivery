@@ -14,12 +14,15 @@ import { Values } from "./Components/Values";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { CoffeesContext } from "../../contexts/CoffeesContext";
+import { AddressContext } from "../../contexts/AddressContext";
 
 export function Checkout() {
   const { removerTudo } = useContext(CoffeesContext);
+  const { removeAddress } = useContext(AddressContext);
 
   const handleConfirmOrder = () => {
     removerTudo();
+    removeAddress();
   };
 
   return (

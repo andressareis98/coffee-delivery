@@ -29,7 +29,14 @@ export function AddressForm() {
         </div>
       </Title>
       <Form>
-        <CepInput name="cep" aria-label="Cep" type="text" placeholder="CEP" />
+        <CepInput
+          name="cep"
+          aria-label="Cep"
+          type="text"
+          placeholder="CEP"
+          value={address.cep}
+          onChange={handleAddress}
+        />
         <Input
           name="street"
           aria-label="Rua"
