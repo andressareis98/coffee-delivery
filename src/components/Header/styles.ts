@@ -37,6 +37,7 @@ export const ShoppingCartButton = styled.div`
   border: none;
   border-radius: 0.375rem;
   background-color: ${(props) => props.theme["yellow-light"]};
+  cursor: pointer;
 `;
 
 export const Badge = styled.span`
