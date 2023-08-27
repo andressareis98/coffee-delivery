@@ -9,7 +9,7 @@ export interface AddressState {
 const initialState: Address = {
   cep: "",
   street: "",
-  number: 0,
+  number: "",
   complement: "",
   neighborhood: "",
   city: "",

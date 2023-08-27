@@ -16,6 +16,9 @@ export function AddressForm() {
 
   const handleAddress = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
+
+    if (name === "number" && isNaN(Number(value))) return;
+
     setAddress({ ...address, [name]: value });
   };
 
@@ -30,6 +33,7 @@ export function AddressForm() {
       </Title>
       <Form>
         <CepInput
+          required
           name="cep"
           aria-label="Cep"
           type="text"
@@ -38,6 +42,7 @@ export function AddressForm() {
           onChange={handleAddress}
         />
         <Input
+          required
           name="street"
           aria-label="Rua"
           type="text"
@@ -47,9 +52,9 @@ export function AddressForm() {
         />
         <InputsContainer>
           <Input
+            required
             name="number"
             aria-label="Número"
-            type="number"
             placeholder="Número"
             value={address.number}
             onChange={handleAddress}
@@ -73,6 +78,7 @@ export function AddressForm() {
             onChange={handleAddress}
           />
           <Input
+            required
             name="city"
             aria-label="Cidade"
             type="text"
@@ -81,6 +87,7 @@ export function AddressForm() {
             onChange={handleAddress}
           />
           <Input
+            required
             name="state"
             aria-label="UF"
             type="text"

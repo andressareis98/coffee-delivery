@@ -65,7 +65,6 @@ export const InputLabel = styled.label<labelProps>`
   font-size: 12px;
   line-height: 160%;
   white-space: nowrap;
-  flex-wrap: wrap;
 
   input {
     display: none;

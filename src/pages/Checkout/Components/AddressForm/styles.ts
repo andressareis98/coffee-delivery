@@ -40,17 +40,7 @@ export const TitleContainer = styled.div`
   }
 `;
 
-export const Form = styled.form`
-  input[type="number"]::-webkit-inner-spin-button,
-  input[type="number"]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
-
-  input[type="number"] {
-    -moz-appearance: textfield; /* Para Firefox */
-  }
-`;
+export const Form = styled.form``;
 
 export const Input = styled.input`
   color: ${(props) => props.theme["base-text"]};
